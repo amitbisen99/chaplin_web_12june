@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Request support from Hindu Chaplaincy. Submit your request for spiritual care, family support, or chaplaincy services.">
+  <title>Request Support - Hindu Chaplaincy</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Help Form Page Specific Styles */
+    .help-page {
+      padding-top: 100px;
+      min-height: 100vh;
+      background: var(--bg-primary);
+    }
+    
+    .help-header {
+      background: var(--bg-secondary);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    
+    .help-header h1 {
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+    
+    .help-header p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.125rem;
+    }
+    
+    .help-form-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+    
+    .form-section {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    
+    .form-section:last-of-type {
+      border-bottom: none;
+    }
+    
+    .form-section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: var(--accent-deep);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .form-section-title::before {
+      content: '';
+      width: 4px;
+      height: 28px;
+      background: var(--accent-saffron);
+      border-radius: 2px;
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-row.single {
+      grid-template-columns: 1fr;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .form-group label .required {
+      color: var(--accent-saffron);
+      margin-left: 2px;
+    }
+    
+    .form-group label .optional {
+      color: var(--text-secondary);
+      font-weight: 400;
+      font-size: 0.8125rem;
+      margin-left: 4px;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      font-family: 'Manrope', sans-serif;
+      font-size: 1rem;
+      color: var(--text-primary);
+      background: white;
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      outline: none;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--accent-deep);
+      box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
+    }
+    
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(92, 64, 51, 0.5);
+    }
+    
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    
+    .radio-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    
+    .radio-option {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+    }
+    
+    .radio-option input[type="radio"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--accent-saffron);
+      cursor: pointer;
+    }
+    
+    .radio-option span {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+    }
+    
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    
+    .checkbox-group input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--accent-saffron);
+      cursor: pointer;
+      margin-top: 2px;
+    }
+    
+    .checkbox-group label {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      cursor: pointer;
+    }
+    
+    .disclaimer-box {
+      background: var(--bg-secondary);
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    
+    .disclaimer-box h4 {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+    }
+    
+    .disclaimer-box p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
+    }
+    
+    .disclaimer-box p:last-child {
+      margin-bottom: 0;
+    }
+    
+    .form-submit {
+      text-align: center;
+      padding-top: 1rem;
+    }
+    
+    .form-submit .btn {
+      min-width: 200px;
+    }
+    
+    .form-note {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      margin-top: 1rem;
+      text-align: center;
+    }
+    
+    @media (max-width: 640px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .help-form-container {
+        padding: 2rem 1.5rem;
+      }
+      
+      .radio-group {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav-container" data-testid="main-navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" data-testid="nav-logo">
+        <img src="https://customer-assets.emergentagent.com/job_hindu-chaplain-v2/artifacts/nrknlaer_th_logo.png" alt="Hindu Chaplaincy Logo" class="nav-logo-img"><span class="nav-logo-text">The Hindu Chaplain</span>
+      </a>
+      
+      <button class="nav-toggle" data-testid="nav-toggle" onclick="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <ul class="nav-links" data-testid="nav-links">
+        <li><a href="index.html" data-testid="nav-home">Home</a></li>
+        <li><a href="about.html" data-testid="nav-about">About</a></li>
+        <li><a href="sacred-passage.html" data-testid="nav-sacred">Sacred Passage</a></li>
+        <li><a href="empathy.html" data-testid="nav-empathy">Empathy Tribe</a></li>
+        <li><a href="matters.html" data-testid="nav-matters">Why It Matters</a></li>
+        <li><a href="contact.html" data-testid="nav-contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="help-page" data-testid="help-page">
+    <!-- Header -->
+    <section class="help-header">
+      <span class="hero-overline" style="color: var(--accent-saffron); display: block; margin-bottom: 0.75rem;">Request Assistance</span>
+      <h1>Request Support Form</h1>
+      <p>Our commitment is to provide compassionate spiritual care and support during difficult times. Please fill out the form below and we will respond within 24 hours.</p>
+    </section>
+
+    <!-- Form Container -->
+    <div class="help-form-container">
+      <form id="helpRequestForm" data-testid="help-request-form">
+        
+        <!-- Section 1: Your Information -->
+        <div class="form-section">
+          <h3 class="form-section-title">Your Information</h3>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="submitterFirstName">First Name <span class="required">*</span></label>
+              <input type="text" id="submitterFirstName" name="submitterFirstName" placeholder="Your first name" required data-testid="input-submitter-firstname">
+            </div>
+            <div class="form-group">
+              <label for="submitterLastName">Last Name <span class="required">*</span></label>
+              <input type="text" id="submitterLastName" name="submitterLastName" placeholder="Your last name" required data-testid="input-submitter-lastname">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cellPhone">Cell Phone <span class="required">*</span></label>
+              <input type="tel" id="cellPhone" name="cellPhone" placeholder="+1 (555) 123-4567" required data-testid="input-cell-phone">
+            </div>
+            <div class="form-group">
+              <label for="email">Email <span class="required">*</span></label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required data-testid="input-email">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="city">City <span class="required">*</span></label>
+              <input type="text" id="city" name="city" placeholder="Your city" required data-testid="input-city">
+            </div>
+            <div class="form-group">
+              <label for="state">State <span class="required">*</span></label>
+              <input type="text" id="state" name="state" placeholder="Your state" required data-testid="input-state">
+            </div>
+          </div>
+          
+          <div class="form-row single">
+            <div class="form-group">
+              <label for="country">Country <span class="required">*</span></label>
+              <select id="country" name="country" required data-testid="select-country">
+                <option value="">Select country...</option>
+                <option value="US">United States</option>
+                <option value="IN">India</option>
+                <option value="CA">Canada</option>
+                <option value="GB">United Kingdom</option>
+                <option value="AU">Australia</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Affected Person Information -->
+        <div class="form-section">
+          <h3 class="form-section-title">Affected Person Information</h3>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="affectedFirstName">First Name of Affected Person <span class="optional">(Optional)</span></label>
+              <input type="text" id="affectedFirstName" name="affectedFirstName" placeholder="First name" data-testid="input-affected-firstname">
+            </div>
+            <div class="form-group">
+              <label for="affectedLastName">Last Name of Affected Person <span class="optional">(Optional)</span></label>
+              <input type="text" id="affectedLastName" name="affectedLastName" placeholder="Last name" data-testid="input-affected-lastname">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>Your Relation with the Affected <span class="required">*</span></label>
+            <div class="radio-group" data-testid="relation-options">
+              <label class="radio-option">
+                <input type="radio" name="relation" value="self" required>
+                <span>Self</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="relation" value="family">
+                <span>Family Member</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="relation" value="friend">
+                <span>Friend</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="relation" value="colleague">
+                <span>Colleague</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="relation" value="other">
+                <span>Other</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Support Request Details -->
+        <div class="form-section">
+          <h3 class="form-section-title">Support Request Details</h3>
+          
+          <div class="form-group">
+            <label for="supportType">Type of Support Needed <span class="required">*</span></label>
+            <select id="supportType" name="supportType" required data-testid="select-support-type">
+              <option value="">Select type of support...</option>
+              <option value="family">Family Support & Guidance</option>
+              <option value="hospital">Hospital Chaplaincy</option>
+              <option value="grief">Grief & Bereavement Support</option>
+              <option value="spiritual">Spiritual Counseling</option>
+              <option value="crisis">Crisis Support</option>
+              <option value="rituals">Ritual Guidance</option>
+              <option value="university">University Student Support</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="urgency">Urgency Level <span class="required">*</span></label>
+            <select id="urgency" name="urgency" required data-testid="select-urgency">
+              <option value="">Select urgency...</option>
+              <option value="immediate">Immediate (within 24 hours)</option>
+              <option value="soon">Soon (within a few days)</option>
+              <option value="planned">Planned (scheduling for future)</option>
+              <option value="general">General inquiry</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="details">Please describe your situation <span class="required">*</span></label>
+            <textarea id="details" name="details" placeholder="Please share details about your situation and how we can support you..." required data-testid="textarea-details"></textarea>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="preferredContact">Preferred Contact Method</label>
+              <select id="preferredContact" name="preferredContact" data-testid="select-preferred-contact">
+                <option value="phone">Phone Call</option>
+                <option value="email">Email</option>
+                <option value="video">Video Call</option>
+                <option value="any">Any</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="preferredTime">Preferred Time to Contact</label>
+              <select id="preferredTime" name="preferredTime" data-testid="select-preferred-time">
+                <option value="anytime">Anytime</option>
+                <option value="morning">Morning (8am - 12pm)</option>
+                <option value="afternoon">Afternoon (12pm - 5pm)</option>
+                <option value="evening">Evening (5pm - 8pm)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Alternate Contact -->
+        <div class="form-section">
+          <h3 class="form-section-title">Alternate Contact (Optional)</h3>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="altFirstName">First Name</label>
+              <input type="text" id="altFirstName" name="altFirstName" placeholder="Alternate contact first name" data-testid="input-alt-firstname">
+            </div>
+            <div class="form-group">
+              <label for="altLastName">Last Name</label>
+              <input type="text" id="altLastName" name="altLastName" placeholder="Alternate contact last name" data-testid="input-alt-lastname">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="altPhone">Phone Number</label>
+            <input type="tel" id="altPhone" name="altPhone" placeholder="+1 (555) 123-4567" data-testid="input-alt-phone">
+          </div>
+        </div>
+
+        <!-- Section 5: Consent -->
+        <div class="form-section">
+          <h3 class="form-section-title">Disclaimer & Consent</h3>
+          
+          <div class="disclaimer-box">
+            <h4>Our Commitment to You</h4>
+            <p>Hindu Chaplaincy is dedicated to providing compassionate spiritual care and support. By submitting this request, you acknowledge the following:</p>
+            <p><strong>1. Confidentiality:</strong> All information shared will be kept confidential and used solely for the purpose of providing spiritual care and support.</p>
+            <p><strong>2. Nature of Support:</strong> Our services focus on spiritual guidance, emotional support, and connection to Hindu traditions. We are not a substitute for professional medical, legal, or mental health services.</p>
+            <p><strong>3. Response Time:</strong> While we strive to respond to all requests within 24 hours, response times may vary based on the nature and urgency of requests.</p>
+            <p><strong>4. Referrals:</strong> When appropriate, we may suggest additional resources or professionals who can assist with your needs.</p>
+          </div>
+          
+          <div class="checkbox-group">
+            <input type="checkbox" id="consent" name="consent" required data-testid="checkbox-consent">
+            <label for="consent">I have read and agree to the disclaimer above. I understand that Hindu Chaplaincy provides spiritual care and support services. <span class="required">*</span></label>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="form-submit">
+          <button type="submit" class="btn btn-saffron" data-testid="submit-help-form">
+            Submit Request
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </button>
+          <p class="form-note">We will respond to your request within 24 hours.</p>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" data-testid="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>The Hindu Chaplain</h3>
+        <p>Spiritual Care and Connection for the Hindu community. Offering compassionate support through life's transitions.</p>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="empathy.html">Empathy Tribe</a></li>
+          <li><a href="matters.html">Why It Matters</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="help.html">Request Support</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+12017572278">+1 (201) 757-2278</a></li>
+          <li><a href="mailto:info@thehinduchaplain.com">info@thehinduchaplain.com</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 The Hindu Chaplain. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      const navLinks = document.querySelector('.nav-links');
+      navLinks.classList.toggle('active');
+    }
+    
+    // Google Sheets Web App URL
+    const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyQEpZUQ6_ok4HSA6kk6BrGDlw2Fl3YgBYXDum-d6xM7Fg4oosoJ95Dvf4_jC9hi6gO/exec';
+    
+    // Form submission handler
+    document.getElementById('helpRequestForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = 'Submitting...';
+      submitBtn.disabled = true;
+      
+      // Get form data
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData.entries());
+      
+      try {
+        // Send to Google Sheets
+        const response = await fetch(GOOGLE_SHEETS_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+        
+        // Since mode is 'no-cors', we can't read the response
+        // But if no error was thrown, assume success
+        alert('Thank you for your request! We will contact you within 24 hours.');
+        this.reset();
+        
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Something went wrong. Please try again or call us directly at +1 (201) 757-2278');
+      } finally {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+  <!-- Floating WhatsApp Chat Button -->
+  <a href="https://wa.me/12017572278" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp" data-testid="whatsapp-float-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.464 3.488"/></svg>
+  </a>
+
+</body>
+</html>

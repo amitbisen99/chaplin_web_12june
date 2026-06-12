@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sacred Passage Hindu Care - Compassionate end-of-life support grounded in Hindu spiritual wisdom. Guiding individuals and families through the final stages of life with clarity, dignity, and reverence.">
+  <title>Sacred Passage Hindu Care - Hindu Chaplaincy</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .sacred-hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      background: linear-gradient(135deg, var(--accent-deep), #5a3a1a);
+      padding: 8rem 2rem;
+    }
+    
+    .sacred-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+    }
+    
+    .sacred-hero h1 {
+      color: white;
+      margin-bottom: 1.5rem;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+    }
+    
+    .sacred-hero p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.25rem;
+    }
+    
+    .sacred-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .sacred-intro {
+      font-size: 1.25rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+    
+    .services-list {
+      background: var(--bg-secondary);
+      border-radius: 20px;
+      padding: 3rem;
+      margin-bottom: 3rem;
+    }
+    
+    .services-list h3 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--accent-deep);
+    }
+    
+    .services-list ul {
+      list-style: none;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .services-list ul li {
+      padding: 1rem 0;
+      padding-left: 2.5rem;
+      position: relative;
+      font-size: 1.0625rem;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    
+    .services-list ul li:last-child {
+      border-bottom: none;
+    }
+    
+    .services-list ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 12px;
+      height: 12px;
+      background: var(--accent-saffron);
+      border-radius: 50%;
+    }
+    
+    .sacred-closing {
+      font-size: 1.25rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      text-align: center;
+      padding: 2rem 3rem;
+      background: white;
+      border-radius: 20px;
+      border: 1px solid var(--border-subtle);
+      position: relative;
+    }
+    
+    .sacred-closing::before {
+      content: '"';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 6rem;
+      color: var(--accent-saffron);
+      opacity: 0.15;
+      position: absolute;
+      top: -10px;
+      left: 2rem;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav-container" data-testid="main-navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" data-testid="nav-logo">
+        <img src="https://customer-assets.emergentagent.com/job_hindu-chaplain-v2/artifacts/nrknlaer_th_logo.png" alt="Hindu Chaplaincy Logo" class="nav-logo-img"><span class="nav-logo-text">The Hindu Chaplain</span>
+      </a>
+      
+      <button class="nav-toggle" data-testid="nav-toggle" onclick="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <ul class="nav-links" data-testid="nav-links">
+        <li><a href="index.html" data-testid="nav-home">Home</a></li>
+        <li><a href="about.html" data-testid="nav-about">About</a></li>
+        <li><a href="sacred-passage.html" class="active" data-testid="nav-sacred">Sacred Passage</a></li>
+        <li><a href="empathy.html" data-testid="nav-empathy">Empathy Tribe</a></li>
+        <li><a href="matters.html" data-testid="nav-matters">Why It Matters</a></li>
+        <li><a href="contact.html" data-testid="nav-contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="sacred-hero" data-testid="sacred-hero">
+    <div class="sacred-hero-content">
+        <span style="font-size: 20px; font-weight: 600; color: #ffffff;">End-of-Life Support</span>
+     <!--  <span class="hero-overline" style="color: var(--accent-gold);">End-of-Life Support</span> -->
+      <h1>Sacred Passage Hindu Care</h1>
+      <p>Compassionate guidance through life's final journey, grounded in Hindu spiritual wisdom</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="section" data-testid="sacred-content">
+    <div class="container">
+      <div class="sacred-content">
+        <p class="sacred-intro">
+          Sacred Transition Hindu Care offers compassionate end-of-life support grounded in Hindu spiritual wisdom. We guide individuals and families through the final stages of life with clarity, dignity, and reverence—honoring both tradition and the emotional needs of those we serve.
+        </p>
+        
+        <div class="services-list" data-testid="sacred-services">
+          <h3>Our Services</h3>
+          <ul>
+            <li>End-of-life spiritual counseling (individual & family)</li>
+            <li>Guidance on Antyesti (final rites) and rituals</li>
+            <li>Support during hospital or hospice care</li>
+            <li>Grief support rooted in Hindu philosophy</li>
+            <li>Assistance coordinating with priests and ritual needs</li>
+          </ul>
+        </div>
+        
+        <div class="sacred-closing">
+          <p>We walk alongside families, offering emotional support, clear and consistent updates, and coordination with loved ones back home to ease stress, confusion, and isolation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section section-alt" data-testid="sacred-cta">
+    <div class="container text-center">
+      <h2>Need Support?</h2>
+      <p style="max-width: 600px; margin: 1rem auto 2rem;">If you or your family is facing end-of-life decisions and would like compassionate spiritual guidance rooted in Hindu tradition, we are here for you.</p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+       <!-- <a href="tel:+12017572278" class="btn btn-primary" data-testid="sacred-call-btn">Call Us Now</a> -->
+        <a href="help.html" class="btn btn-saffron" data-testid="sacred-support-btn">Request Support</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" data-testid="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>The Hindu Chaplain</h3>
+        <p>Spiritual Care and Connection for the Hindu community. Offering compassionate support through life's transitions.</p>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="sacred-passage.html">Sacred Passage</a></li>
+          <li><a href="empathy.html">Empathy Tribe</a></li>
+          <li><a href="matters.html">Why It Matters</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="help.html">Request Support</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+12017572278">+1 (201) 757-2278</a></li>
+          <li><a href="mailto:info@thehinduchaplain.com">info@thehinduchaplain.com</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 The Hindu Chaplain. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      const navLinks = document.querySelector('.nav-links');
+      navLinks.classList.toggle('active');
+    }
+  </script>
+  <!-- Floating WhatsApp Chat Button -->
+  <a href="https://wa.me/12017572278" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp" data-testid="whatsapp-float-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.464 3.488"/></svg>
+  </a>
+
+</body>
+</html>
